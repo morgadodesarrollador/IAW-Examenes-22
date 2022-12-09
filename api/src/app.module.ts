@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {ProfesorModule, AulasModule, AlumnosModule, MaterialModule, DepartamentosModule, 
-  TipoMaterialModule, IncidenciaModule, CierreIncidenciaModule, AuthModule } from './modulos/index';
+import { AuthModule } from './modulos/index';
 
 @Module({
   controllers: [],
@@ -19,14 +18,6 @@ import {ProfesorModule, AulasModule, AlumnosModule, MaterialModule, Departamento
       autoLoadEntities: true,
       synchronize:true
     }),
-    ProfesorModule,
-    AulasModule,
-    AlumnosModule,
-    MaterialModule,
-    DepartamentosModule,
-    TipoMaterialModule,
-    IncidenciaModule,
-    CierreIncidenciaModule,
     AuthModule,
   ]
 })

@@ -1,9 +1,2 @@
-export { ProfesorModule } from './profesor/profesor.module';
-export { AulasModule } from './aulas/aulas.module';
-export { AlumnosModule } from './alumnos/alumnos.module';
-export { MaterialModule } from './material/material.module';
-export { DepartamentosModule } from './departamentos/departamentos.module';
-export { TipoMaterialModule } from './tipo-material/tipo-material.module';
-export { IncidenciaModule } from './incidencia/incidencia.module';
-export { CierreIncidenciaModule } from './cierre-incidencia/cierre-incidencia.module';
+
 export { AuthModule } from './auth/auth.module';
