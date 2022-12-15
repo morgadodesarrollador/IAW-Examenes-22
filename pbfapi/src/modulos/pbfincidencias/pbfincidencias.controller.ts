@@ -12,12 +12,12 @@ export class PbfincidenciasController {
     return this.pbfincidenciasService.create(createPbfincidenciaDto);
   }
 
-  @Get('pbflistar')
+  @Get('pbflist')
   findAll() {
     return this.pbfincidenciasService.findAll();
   }
 
-  @Get(':codigo')
+  @Get('pbfgetid/:codigo')
   findOne(@Param('codigo') codigo: string) {
     return this.pbfincidenciasService.findOne(codigo);
   }

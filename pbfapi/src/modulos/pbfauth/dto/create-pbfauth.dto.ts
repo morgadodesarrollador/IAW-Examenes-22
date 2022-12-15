@@ -1,4 +1,4 @@
-import { IsEmail, IsString, Matches, MaxLength, MinLength } from "class-validator";
+import { IsEmail, IsOptional, IsString, Matches, MaxLength, MinLength } from "class-validator";
 
 export class CreatePbfauthDto {
 
@@ -21,6 +21,10 @@ export class CreatePbfauthDto {
     @IsString()
     @MinLength(1)
     nombre:string;
+
+    // @IsString()
+    // @IsOptional()
+    // roles: string;
 
 
 

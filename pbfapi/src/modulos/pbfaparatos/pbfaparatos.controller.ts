@@ -7,7 +7,7 @@ import { UpdatePbfaparatoDto } from './dto/update-pbfaparato.dto';
 export class PbfaparatosController {
   constructor(private readonly pbfaparatosService: PbfaparatosService) {}
 
-  @Post()
+  @Post('pbfregister')
   create(@Body() createPbfaparatoDto: CreatePbfaparatoDto) {
     return this.pbfaparatosService.create(createPbfaparatoDto);
   }
@@ -17,18 +17,18 @@ export class PbfaparatosController {
     return this.pbfaparatosService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pbfaparatosService.findOne(+id);
+  @Get('pbfgetid/:cod')
+  findOne(@Param('cod') cod: string) {
+    return this.pbfaparatosService.findOne(cod);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePbfaparatoDto: UpdatePbfaparatoDto) {
-    return this.pbfaparatosService.update(+id, updatePbfaparatoDto);
+  @Patch(':cod')
+  update(@Param('cod') cod: string, @Body() updatePbfaparatoDto: UpdatePbfaparatoDto) {
+    return this.pbfaparatosService.update(cod, updatePbfaparatoDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.pbfaparatosService.remove(+id);
+  @Delete(':cod')
+  remove(@Param('cod') cod: string) {
+    return this.pbfaparatosService.remove(cod);
   }
 }

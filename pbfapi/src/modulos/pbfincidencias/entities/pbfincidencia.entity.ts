@@ -12,7 +12,7 @@ export class Pbfincidencia {
     @Column('text', { nullable: true} )
     fecha: string;
 
-    @Column('bool', { default: true })
-    status: boolean;
+    @Column('text', { default: 'en proceso' })
+    status: string;
 
 }

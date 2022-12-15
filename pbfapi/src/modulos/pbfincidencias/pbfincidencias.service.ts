@@ -8,33 +8,35 @@ import { Pbfincidencia } from './entities/pbfincidencia.entity';
 @Injectable()
 export class PbfincidenciasService {
 
-  // constructor(
-  //   @InjectRepository(Pbfincidencia)
-  //   private readonly pbfincidenciasRepository: Repository<Pbfincidencia>,
-  // ){
+  constructor(
+    @InjectRepository(Pbfincidencia)
+    private readonly pbfincidenciasRepository: Repository<Pbfincidencia>,
+  ){
     
-  // }
+  }
 
   async create(createPbfincidenciaDto: CreatePbfincidenciaDto) {
-    // try {
-    //   const cliente = this.pbfincidenciasRepository.create(createPbfincidenciaDto);
-    //   console.log(cliente);
-    //   await this.pbfincidenciasRepository.save(cliente);
-    //   return cliente;
+    try {
+      const incidente = this.pbfincidenciasRepository.create(createPbfincidenciaDto);
+      console.log(incidente);
+      await this.pbfincidenciasRepository.save(incidente);
+      return incidente;
 
-    // } catch (error) {
-    //   console.log(error);
-    //   throw new InternalServerErrorException('Ayuda')
-    // }
-    return `prueba`;
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException('Ayuda')
+    }
   }
 
   findAll() {
-    return `This action returns all pbfincidencias`;
+    return this.pbfincidenciasRepository.find({})
   }
 
   findOne(codigo: string) {
-    return `This action returns a #${codigo} pbfincidencia`;
+    return this.pbfincidenciasRepository.findOne({
+      where: 
+        { codigo: codigo}
+    });
   }
 
   update(codigo: string, updatePbfincidenciaDto: UpdatePbfincidenciaDto) {

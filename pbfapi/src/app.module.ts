@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PbfauthModule } from './modulos/pbfauth/pbfauth.module';
 import { PbfincidenciasModule } from './modulos/pbfincidencias/pbfincidencias.module';
 import { PbfaparatosModule } from './modulos/pbfaparatos/pbfaparatos.module';
+// import { SeedModule } from './modulos/seed/seed.module';
 
 
 
@@ -25,6 +26,7 @@ import { PbfaparatosModule } from './modulos/pbfaparatos/pbfaparatos.module';
     PbfauthModule,
     PbfincidenciasModule,
     PbfaparatosModule,
+    // SeedModule,
 
     
   ]

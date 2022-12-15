@@ -17,7 +17,7 @@ export class PbfauthController {
     return this.pbfauthService.findAll();
   }
 
-  @Get(':id')
+  @Get('pbfgetid/:idea')
   findOne(@Param('idea') idea: string) {
     return this.pbfauthService.findOne(idea);
   }

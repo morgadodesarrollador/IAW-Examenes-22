@@ -15,4 +15,7 @@ export class CreatePbfincidenciaDto {
     @IsString()
     fecha: string;
 
+    @IsString()
+    status: string;
+
 }
