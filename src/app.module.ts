@@ -3,6 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { JlpmAparatosModule } from './modules/jlp-aparatos/jlp-aparatos.module';
+import { JlpIncicenciasModule } from './modules/jlp-incicencias/jlp-incicencias.module';
+import { JlpmAthModule } from './modules/jlpm-ath/jlpm-ath.module';
 
 @Module({
   imports: [ConfigModule.forRoot(),
@@ -16,6 +19,7 @@ import { AppService } from './app.service';
       autoLoadEntities: true,
       synchronize: !!process.env.DB_SYNC
     }), 
+    JlpmAthModule,JlpmAparatosModule,JlpIncicenciasModule
   ],
   controllers: [AppController],
   providers: [AppService],

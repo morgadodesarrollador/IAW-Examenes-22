@@ -7,11 +7,11 @@ import { UpdateJlpmAthDto } from './dto/update-jlpm-ath.dto';
 export class JlpmAthController {
   constructor(private readonly jlpmAthService: JlpmAthService) {}
 
-  @Post()
+  @Post('register')
   create(@Body() createJlpmAthDto: CreateJlpmAthDto) {
     return this.jlpmAthService.create(createJlpmAthDto);
   }
-
+  
   @Get()
   findAll() {
     return this.jlpmAthService.findAll();
@@ -19,7 +19,7 @@ export class JlpmAthController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.jlpmAthService.findOne(+id);
+    return this.jlpmAthService.findOne(id);
   }
 
   @Patch(':id')

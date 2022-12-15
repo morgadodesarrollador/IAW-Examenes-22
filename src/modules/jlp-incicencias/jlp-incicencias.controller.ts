@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { JlpIncicenciasService } from './jlp-incicencias.service';
+import { JlpIncidenciasService } from './jlp-incicencias.service';
 import { CreateJlpIncicenciaDto } from './dto/create-jlp-incicencia.dto';
 import { UpdateJlpIncicenciaDto } from './dto/update-jlp-incicencia.dto';
 
 @Controller('jlp-incicencias')
 export class JlpIncicenciasController {
-  constructor(private readonly jlpIncicenciasService: JlpIncicenciasService) {}
+  constructor(private readonly jlpIncicenciasService: JlpIncidenciasService) {}
 
   @Post()
   create(@Body() createJlpIncicenciaDto: CreateJlpIncicenciaDto) {

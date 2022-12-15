@@ -1,10 +1,12 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Incicencia } from "src/modules/jlp-incicencias/entities/jlp-incicencia.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { isEntityName } from "typescript";
 
-export class JlpAparato {
+@Entity('jlpmAparato')
+export class Aparato {
 
-        @PrimaryGeneratedColumn("uuid")
-    
-        id: string;
+        @PrimaryGeneratedColumn()
+        cod: string;
     
         @Column('text',{
             unique: true
@@ -12,18 +14,31 @@ export class JlpAparato {
         nombre: string;
     
         @Column('text',{
-            unique: true
+            array:true,
+            default: ['B1', 'B2', 'B3', 'C1','C2','C3','A1','A2']
         })
         aula: string;
     
         @Column('text',{
-            nullable: true
+            array:true,
+            default: ['Proyector', 'Ordenador', 'Pizarra Digital', 'Auriculares','Altavoces']
         })
         tipo: string;
 
         @Column('text',{
             nullable: true
         })
-        año: string;
+        ano: string;
+
+
+        //Relacion
+        
+        @OneToMany(
+            () => Incicencia,
+            (Incicencia) => Incicencia.aparato,
+            { cascade: false, eager: false  }
     
+            
+        )
+        incicencias?: Incicencia[];
 }

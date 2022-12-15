@@ -19,7 +19,7 @@ export class JlpAparatosController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.jlpAparatosService.findOne(+id);
+    return this.jlpAparatosService.findOne(id);
   }
 
   @Patch(':id')

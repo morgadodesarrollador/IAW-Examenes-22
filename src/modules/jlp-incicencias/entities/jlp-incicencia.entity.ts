@@ -1,9 +1,12 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Aparato } from "src/modules/jlp-aparatos/entities/jlp-aparato.entity";
+import { Usuario } from "src/modules/jlpm-ath/entities/jlpm-Usuario.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
-export class JlpIncicencia {
-    @PrimaryGeneratedColumn("uuid")
+@Entity('jlpmIncidencias')
+export class Incicencia {
+    @PrimaryGeneratedColumn('uuid')
 
-    id: string;
+    codigo: string;
 
     @Column('text',{
         unique: true
@@ -19,4 +22,24 @@ export class JlpIncicencia {
         nullable: true
     })
     status: string;
+
+    //Relacion con aparato
+
+    @ManyToOne(
+        () => Aparato,
+        (aparato) => aparato.incicencias,
+        { cascade: false }
+    )
+    aparato?: Aparato
+
+    //Relacion con usuario
+
+    @ManyToOne(
+        () => Usuario,
+        (usuario) => usuario.incidencias,
+        { cascade: false }
+    )
+    usuario?: Usuario
+    
+    
 }
