@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
+import { JmvpIncidencia } from '../../jmvp-incidencias/entities/jmvp-incidencia.entity';
 
 @Entity({ name: 'jmvpUsuarios' })
 export class JmvpUser {
@@ -16,4 +17,11 @@ export class JmvpUser {
 
     @Column('text')
     jmvpnombre: string;
+
+    @OneToMany(
+        () => JmvpIncidencia,
+        (JmvpIncidencia) => JmvpIncidencia.jmvpideaUs,
+        { cascade: true, eager: true  }
+    )
+    jmvpcodigoIn?: JmvpIncidencia[];
 }

@@ -1,26 +1,30 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { JmvpAparatosService } from '../jmvp-aparatos/jmvp-aparatos.service';
+import { JmvpAuthService } from '../jmvp-auth/jmvp-auth.service';
 import { CreateJmvpIncidenciaDto } from './dto/create-jmvp-incidencia.dto';
 import { UpdateJmvpIncidenciaDto } from './dto/update-jmvp-incidencia.dto';
 import { JmvpIncidencia } from './entities/jmvp-incidencia.entity';
 
 @Injectable()
 export class JmvpIncidenciasService {
-  JmvpAparatosService: any;
   constructor(
 
     @InjectRepository(JmvpIncidencia)
     private readonly JmvpIncidenciaRepository: Repository<JmvpIncidencia>,
+    private readonly jmvpAparatosService: JmvpAparatosService,
+    private readonly jmvpAuthService: JmvpAuthService,
 
   ) {}  
 
   async jmvpcreate(createJmvpIncidenciaDto: CreateJmvpIncidenciaDto) {
     // return 'This action adds a new jmvpIncidencia';
     try {
-      const { jmvpcod, ...campos } = createJmvpIncidenciaDto;
+      const { jmvpcodAp, jmvpideaUs, ...campos } = createJmvpIncidenciaDto;
       const incidencia = this.JmvpIncidenciaRepository.create({ ...campos });
-      incidencia.jmvpcod = await this.JmvpAparatosService.findOne( jmvpcod );
+      incidencia.jmvpcodAp = await this.jmvpAparatosService.jmvpgetId( jmvpcodAp );
+      incidencia.jmvpideaUs = await this.jmvpAuthService.jmvpgetId( jmvpideaUs );
       await this.JmvpIncidenciaRepository.save( incidencia );
       return incidencia;
     } catch (error) {
@@ -41,7 +45,8 @@ export class JmvpIncidenciasService {
         jmvpcodigo
       },
       relations: { 
-        jmvpcod: true
+        jmvpcodAp: true,
+        jmvpideaUs: true
       }
     });
   }

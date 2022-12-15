@@ -15,5 +15,8 @@ export class CreateJmvpIncidenciaDto {
     jmvpstatus: string;
 
     @IsString()
-    jmvpcod: string;
+    jmvpcodAp: string;
+
+    @IsString()
+    jmvpideaUs: string;
 }

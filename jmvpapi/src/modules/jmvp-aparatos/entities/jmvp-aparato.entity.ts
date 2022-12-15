@@ -21,9 +21,9 @@ export class JmvpAparato {
 
     @OneToMany(
         () => JmvpIncidencia,
-        (JmvpIncidencia) => JmvpIncidencia.jmvpcodigo,
+        (JmvpIncidencia) => JmvpIncidencia.jmvpcodAp,
         { cascade: true, eager: true  }
     )
-    jmvpcodigo?: JmvpIncidencia[];
+    jmvpcodigoIn?: JmvpIncidencia[];
 
 }

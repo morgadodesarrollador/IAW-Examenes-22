@@ -5,6 +5,9 @@ export class CreateJmvpUserDto {
     jmvpidea: string;
   
     @IsString()
+    jmvpemail: string;
+
+    @IsString()
     jmvppassword: string;
 
     @IsBoolean()

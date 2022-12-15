@@ -12,7 +12,7 @@ import { validate as isUUID } from 'uuid';
 @Injectable()
 export class JmvpAparatosService {
 
-  // private readonly logger = new Logger('CategoriesService');
+  // private readonly logger = new Logger('JmvpAparatosService');
 
   constructor(
 
@@ -36,6 +36,18 @@ export class JmvpAparatosService {
       console.log(error);
       throw new InternalServerErrorException('Error en BD!')
     }
+  }
+
+  jmvpgetId(jmvpcod: string) {
+    // return `This action returns a #${id} jmvpAuth`;
+    return this.JmvpAparatoRepository.findOne({
+      where: { 
+        jmvpcod
+      },
+      relations: { 
+        jmvpcodigoIn: true
+      }
+    });
   }
 
   jmvpgetAll() {

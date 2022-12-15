@@ -17,9 +17,9 @@ export class JmvpAuthController {
   //   return this.jmvpAuthService.findAll();
   // }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.jmvpAuthService.jmvpgetId(+id);
+  @Get(':jmvpidea')
+  findOne(@Param('jmvpidea') jmvpidea: string) {
+    return this.jmvpAuthService.jmvpgetId(jmvpidea);
   }
 
   // @Patch(':id')

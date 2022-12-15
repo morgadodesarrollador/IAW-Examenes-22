@@ -56,8 +56,16 @@ export class JmvpAuthService {
   //   return `This action returns all jmvpAuth`;
   // }
 
-  jmvpgetId(id: number) {
-    return `This action returns a #${id} jmvpAuth`;
+  jmvpgetId(jmvpidea: string) {
+    // return `This action returns a #${id} jmvpAuth`;
+    return this.jmvpUserRepository.findOne({
+      where: { 
+        jmvpidea
+      },
+      relations: { 
+        jmvpcodigoIn: true
+      }
+    });
   }
 
   async jmvpdeleteAllUsers() {
