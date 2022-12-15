@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './modulos/index';
+import { AparatosModule } from './modulos/aparatos/aparatos.module';
+import { IncidenciasModule } from './modulos/incidencias/incidencias.module';
 
 @Module({
   controllers: [],
@@ -19,6 +21,8 @@ import { AuthModule } from './modulos/index';
       synchronize:true
     }),
     AuthModule,
+    AparatosModule,
+    IncidenciasModule,
   ]
 })
 export class AppModule {}
