@@ -3,7 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MaspAuthModule } from './modulos/masp-auth/masp-auth.module';
+import { MaspAuthModule } from './modulos/maspauth/maspauth.module';
+// import { SeedModule } from './modulos/maspseed/maspseed.module';
+import { MaspincidenciasModule } from './modulos/maspincidencias/maspincidencias.module';
+import { MaspaparatosModule } from './modulos/maspaparatos/maspaparatos.module';
 
 @Module({
   imports: [ConfigModule.forRoot(), TypeOrmModule.forRoot({
@@ -15,7 +18,7 @@ import { MaspAuthModule } from './modulos/masp-auth/masp-auth.module';
     database: "maspIncidencias",
     autoLoadEntities: true,
     synchronize: !!"true"
-  }), MaspAuthModule
+  }), MaspAuthModule, MaspincidenciasModule, MaspaparatosModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Incidencia } from "src/modulos/maspincidencias/entities/maspincidencia.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('maspUsuario')
 export class Usuario {
@@ -23,5 +24,13 @@ export class Usuario {
         default: ['usuario','profesor','coordinador Tic','administrador']
     })
     rol: string[]
+
+    //Relacion a incidencias
+    @OneToMany(
+        () => Incidencia,
+        (Incidencia) => Incidencia.usuario,
+        { cascade: false, eager: false }
+    )
+    incidencia?: Incidencia[];
 
 }

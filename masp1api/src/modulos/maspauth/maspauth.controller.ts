@@ -1,15 +1,15 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { MaspAuthService } from './masp-auth.service';
-import { CreateMaspAuthDto } from './dto/create-masp-auth.dto';
-import { UpdateMaspAuthDto } from './dto/update-masp-auth.dto';
+import { MaspAuthService } from './maspauth.service';
+import { CreateMaspUserDto } from './dto/create-maspuser.dto';
+import { UpdateMaspAuthDto } from './dto/update-maspauth.dto';
 
 @Controller('masp-auth')
 export class MaspAuthController {
   constructor(private readonly maspAuthService: MaspAuthService) {}
 
-  @Post()
-  create(@Body() createMaspAuthDto: CreateMaspAuthDto) {
-    return this.maspAuthService.create(createMaspAuthDto);
+  @Post('maspregister')
+  create(@Body() createMaspUserDto: CreateMaspUserDto) {
+    return this.maspAuthService.create(createMaspUserDto);
   }
 
   @Get()
@@ -19,7 +19,7 @@ export class MaspAuthController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.maspAuthService.findOne(+id);
+    return this.maspAuthService.findOne(id);
   }
 
   @Patch(':id')

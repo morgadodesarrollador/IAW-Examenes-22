@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMaspAuthDto } from './dto/create-masp-auth.dto';
-import { UpdateMaspAuthDto } from './dto/update-masp-auth.dto';
+import { CreateMaspUserDto } from './dto/create-maspuser.dto';
+import { UpdateMaspAuthDto } from './dto/update-maspauth.dto';
 
 @Injectable()
 export class MaspAuthService {
-  create(createMaspAuthDto: CreateMaspAuthDto) {
+  create(createMaspAuthDto: CreateMaspUserDto) {
     return 'This action adds a new maspAuth';
   }
 
@@ -12,8 +12,8 @@ export class MaspAuthService {
     return `This action returns all maspAuth`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} maspAuth`;
+  findOne(idea: string) {
+    return `This action returns a #${idea} maspAuth`;
   }
 
   update(id: number, updateMaspAuthDto: UpdateMaspAuthDto) {

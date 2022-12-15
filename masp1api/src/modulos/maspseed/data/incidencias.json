@@ -1,0 +1,36 @@
+[
+    {
+        "idea":"ang2617",
+        "codAp":"Proy4",
+        "descripcion":"El proyector del aula C1 ilumina muy poco",
+        "fecha": "13/12/2022",
+        "status": "en proceso"
+    },
+    {
+        "idea":"pil3425",
+        "codAp":"Piz2",
+        "descripcion":"La pizarra está muy deteriorada",
+        "fecha": "3/12/2022"
+    },
+    {
+        "idea":"ang2617",
+        "codAp":"Alt1",
+        "descripcion":"No se encuentran los altavoces del aula C1",
+        "fecha": "23/10/2022",
+        "status": "finalizada"
+    },
+    {
+        "idea":"sof2132",
+        "codAp":"Ord1",
+        "descripcion":"El ordenador del aula no arranca",
+        "fecha": "02/11/2022",
+        "status": "finalizada"
+    },
+    {
+        "idea":"ang2617",
+        "codAp":"Ord3",
+        "descripcion":"El ordenador va muy lento",
+        "fecha": "10/12/2022",
+        "status": "en proceso"
+    }
+]
