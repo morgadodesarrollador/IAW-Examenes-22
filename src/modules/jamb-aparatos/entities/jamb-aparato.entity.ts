@@ -14,7 +14,7 @@ export class JambAparato {
     })
     aula: string;
 
-    @Column('year')
+    @Column('date')
     año: Date;
 
     @Column('text', {
@@ -27,7 +27,7 @@ export class JambAparato {
         (JambIncidencia) => JambIncidencia.codaparato,
         {cascade: false}
     )
-    aparato?: JambIncidencia[];
+    JambIncidencia?: JambIncidencia[];
 
 
 }

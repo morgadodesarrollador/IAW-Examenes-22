@@ -2,8 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JambAparato } from './modules/jamb-aparatos/entities/jamb-aparato.entity';
+import { JambAparatosModule } from './modules/jamb-aparatos/jamb-aparatos.module';
 import { JambAuthModule } from './modules/jamb-auth/jamb-auth.module';
 import { JambIncidencia } from './modules/jamb-incidencias/entities/jamb-incidencia.entity';
+import { JambIncidenciasModule } from './modules/jamb-incidencias/jamb-incidencias.module';
 
 @Module({
   imports: [
@@ -19,8 +21,8 @@ import { JambIncidencia } from './modules/jamb-incidencias/entities/jamb-inciden
       synchronize: true
     }),
     JambAuthModule,
-    JambAparato,
-    JambIncidencia
+    JambAparatosModule,
+    JambIncidenciasModule
   ],
   controllers: [],
   providers: [],

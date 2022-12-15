@@ -9,6 +9,7 @@ import { JambUsuario } from './entities/jamb-Usuario.entity';
   providers: [JambAuthService],
   imports: [
     TypeOrmModule.forFeature( [JambUsuario] ),
-  ]
+  ],
+  exports: [JambAuthService]
 })
 export class JambAuthModule {}

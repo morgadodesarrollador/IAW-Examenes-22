@@ -1,3 +1,4 @@
+
 import { JambIncidencia } from "src/modules/jamb-incidencias/entities/jamb-incidencia.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 

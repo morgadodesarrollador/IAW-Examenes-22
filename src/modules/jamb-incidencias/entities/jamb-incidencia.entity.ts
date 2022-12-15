@@ -4,7 +4,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class JambIncidencia {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     codigo: string;
 
     @Column('text')
@@ -20,7 +20,7 @@ export class JambIncidencia {
 
     @ManyToOne(
         () => JambAparato,
-        (JambAparato) => JambAparato.cod,
+        (JambAparato) => JambAparato.JambIncidencia,
         {cascade: false}
     )
     codaparato?: JambAparato;
@@ -30,5 +30,5 @@ export class JambIncidencia {
         (JambUsuario) => JambUsuario.idea,
         {cascade: false}
     )
-    idUsuario?: JambUsuario;
+    idUsuario?: JambUsuario;    
 }
